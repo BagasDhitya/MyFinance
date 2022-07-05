@@ -1,17 +1,45 @@
 import React from "react";
+import { AppProvider } from "../context/AppContext";
 import { useLocation } from "react-router-dom";
-import "../themes/home.css";
+import Budget from "../components/Budget";
+import RemainingBudget from "../components/RemainingBudget";
+import ExpenseTotal from "../components/ExpenseTotal";
+import ExpenseList from "../components/ExpenseList";
+import AddExpenseForm from "../components/AddExpenseForm";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Home() {
   const location = useLocation();
 
   return (
-    <div>
-      <h5>Hi, welcome back {location.state.email}!</h5>
-      <h1>My Budget Planner</h1>
-      <h3>Expenses</h3>
-      <h3>Add Expenses</h3>
-    </div>
+    <AppProvider>
+      <div className="container">
+        <h1 className="mt-3">My Budget Planner</h1>
+        <div className="row mt-3">
+          <div className="col-sm">
+            <Budget />
+          </div>
+          <div className="col-sm">
+            <RemainingBudget />
+          </div>
+          <div className="col-sm">
+            <ExpenseTotal />
+          </div>
+        </div>
+        <h3 className="mt-3">Expenses</h3>
+        <div className="row ">
+          <div className="col-sm">
+            <ExpenseList />
+          </div>
+        </div>
+        <h3 className="mt-3">Add Expense</h3>
+        <div className="row mt-3">
+          <div className="col-sm">
+            <AddExpenseForm />
+          </div>
+        </div>
+      </div>
+    </AppProvider>
   );
 }
 

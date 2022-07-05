@@ -10,3 +10,8 @@ body {
     font-weight: 500;
     font-family: 'Fira Sans', sans-serif;
   }
+.budget-card{
+  width:50px;
+  height: 70px;
+  background-color: red;
+}
