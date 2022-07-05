@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import "../themes/home.css";
+// import "../themes/home.css";
 
 function Home() {
   const location = useLocation();
