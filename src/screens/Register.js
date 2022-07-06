@@ -11,7 +11,7 @@ const Register = () => {
 
   const [fullname, setFullname] = useState(null);
   const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+  const [password, setPassword] = useState([]);
 
   async function register() {
     const auth = getAuth(app);
@@ -20,8 +20,12 @@ const Register = () => {
   }
 
   async function handleSubmit() {
-    register();
-    navigate("login", { state: { fullname: fullname } });
+    if (password.length <= 6) {
+      alert("Password must contain at least 7 letters and 1 numeric");
+    } else {
+      register();
+      navigate("login", { state: { fullname: fullname } });
+    }
   }
 
   return (
