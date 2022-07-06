@@ -63,7 +63,7 @@ const formInput = (props) => {
                 <input
                   type="email"
                   className="form-control"
-                  placeholder="Enter email"
+                  placeholder="Enter fullname"
                   value={props.fullname}
                   onChange={props.handleFullname}
                 />
