@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import FormInput from "../components/FormInput";
 import "../themes/register.css";
 
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { app } from "../services/firebase";
+
 const Register = () => {
   let navigate = useNavigate();
 
@@ -10,7 +13,16 @@ const Register = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
 
-  function handleSubmit() {}
+  async function register() {
+    const auth = getAuth(app);
+    await createUserWithEmailAndPassword(auth, email, password);
+    alert("Successfully Register");
+  }
+
+  async function handleSubmit() {
+    register();
+    navigate("login");
+  }
 
   return (
     <FormInput
