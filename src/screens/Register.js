@@ -1,30 +1,22 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FormInput from "../components/FormInput";
-import "../themes/login.css";
+import "../themes/register.css";
 
-const Login = () => {
+const Register = () => {
   let navigate = useNavigate();
+
+  const [fullname, setFullname] = useState(null);
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
 
-  function handleSubmit() {
-    if (email && password) {
-      alert("Hello, " + email);
-      navigate("home", {
-        state: {
-          email: email,
-          password: password,
-        },
-      });
-    } else {
-      alert("Please fill in the blank");
-    }
-  }
+  function handleSubmit() {}
 
   return (
     <FormInput
-      login={true}
+      register={true}
+      fullname={fullname}
+      handleFullname={(e) => setFullname(e.target.value)}
       email={email}
       handleEmail={(e) => setEmail(e.target.value)}
       password={password}
@@ -34,4 +26,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
