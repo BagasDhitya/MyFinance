@@ -3,13 +3,26 @@ import { useNavigate } from "react-router-dom";
 import FormInput from "../components/FormInput";
 import "../themes/login.css";
 
+import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
+import { app } from "../services/firebase";
+
 const Login = () => {
   let navigate = useNavigate();
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
 
-  function handleSubmit() {
+  async function login() {
+    try {
+      const auth = getAuth(app);
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch (error) {
+      alert(error);
+    }
+  }
+
+  async function handleSubmit() {
     if (email && password) {
+      login();
       alert("Hello, " + email);
       navigate("home", {
         state: {

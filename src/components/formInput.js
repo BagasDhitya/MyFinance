@@ -61,7 +61,6 @@ const formInput = (props) => {
               <div className="mb-3">
                 <label>Full Name</label>
                 <input
-                  type="email"
                   className="form-control"
                   placeholder="Enter fullname"
                   value={props.fullname}
