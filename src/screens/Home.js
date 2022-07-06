@@ -8,7 +8,7 @@ import ExpenseList from "../components/ExpenseList";
 import AddExpenseForm from "../components/AddExpenseForm";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function Home() {
+const Home = () => {
   const location = useLocation();
 
   return (
@@ -41,6 +41,6 @@ function Home() {
       </div>
     </AppProvider>
   );
-}
+};
 
 export default Home;
