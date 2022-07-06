@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import FormInput from "../components/FormInput";
 import "../themes/login.css";
 
@@ -8,6 +8,7 @@ import { app } from "../services/firebase";
 
 const Login = () => {
   let navigate = useNavigate();
+  let location = useLocation();
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
 
@@ -23,7 +24,12 @@ const Login = () => {
   async function handleSubmit() {
     if (email && password) {
       login();
-      alert("Hello, " + email);
+      if (location.state.fullname) {
+        alert("Hello, " + location.state.fullname);
+      } else {
+        alert("Hello, " + email);
+      }
+
       navigate("home", {
         state: {
           email: email,

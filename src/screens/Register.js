@@ -21,7 +21,7 @@ const Register = () => {
 
   async function handleSubmit() {
     register();
-    navigate("login");
+    navigate("login", { state: { fullname: fullname } });
   }
 
   return (
