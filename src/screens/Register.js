@@ -26,6 +26,7 @@ const Register = () => {
 
   return (
     <FormInput
+      logo={require("../assets/wallet_logo.png")}
       register={true}
       fullname={fullname}
       handleFullname={(e) => setFullname(e.target.value)}

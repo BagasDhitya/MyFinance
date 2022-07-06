@@ -49,14 +49,20 @@ const FormInput = (props) => {
               Submit
             </button>
           </div>
-          <p className="forgot-password text-right">
-            Forgot <a href="#">password?</a>
-          </p>
+          <div>
+            <p className="forgot-password">
+              Don't have an account? <a href="/">Sign up here!</a>
+            </p>
+          </div>
         </form>
       ) : (
         <>
           {props.register && (
             <form>
+              <img
+                src={props.logo}
+                style={{ marginBottom: 40, marginLeft: 127 }}
+              />
               <h3 className="title">My Finance</h3>
               <div className="mb-3">
                 <label>Full Name</label>
