@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../themes/login.css";
 
-const formInput = (props) => {
+const FormInput = (props) => {
   return (
     <div>
       {props.login ? (
@@ -107,4 +107,4 @@ const formInput = (props) => {
   );
 };
 
-export default formInput;
+export default FormInput;
