@@ -61,6 +61,7 @@ const ExpensePlanning = (props) => {
             type="submit"
             class="btn btn-primary"
             style={{ marginLeft: 10 }}
+            onClick={props.onClick}
           >
             Remind on Calendar
           </button>
