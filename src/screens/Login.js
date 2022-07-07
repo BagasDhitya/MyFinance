@@ -30,7 +30,7 @@ const Login = () => {
         alert("Hello, " + email);
       }
 
-      navigate("home", {
+      navigate("/home", {
         state: {
           email: email,
           password: password,

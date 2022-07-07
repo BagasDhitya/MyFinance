@@ -24,7 +24,7 @@ const Register = () => {
       alert("Password must contain at least 7 letters and 1 numeric");
     } else {
       register();
-      navigate("login", { state: { fullname: fullname } });
+      navigate("/login", { state: { fullname: fullname } });
     }
   }
 
