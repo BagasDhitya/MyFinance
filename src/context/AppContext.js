@@ -3,11 +3,12 @@ import { v4 as uuidv4 } from "uuid";
 
 export const AppReducer = (state, action) => {
   switch (action.type) {
-    case "ADD_EXPENSE":
+    case "PLAN_EXPENSE":
       return {
         ...state,
         expenses: [...state.expenses, action.payload],
       };
+
     case "DELETE_EXPENSE":
       return {
         ...state,

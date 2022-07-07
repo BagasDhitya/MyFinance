@@ -5,8 +5,8 @@ import Budget from "../components/Budget";
 import RemainingBudget from "../components/RemainingBudget";
 import ExpenseTotal from "../components/ExpenseTotal";
 import ExpenseList from "../components/ExpenseList";
-import AddExpenseForm from "../components/AddExpenseForm";
 import "bootstrap/dist/css/bootstrap.min.css";
+import ExpensePlanning from "../components/ExpensePlanning";
 
 const Home = () => {
   const location = useLocation();
@@ -26,16 +26,19 @@ const Home = () => {
             <ExpenseTotal />
           </div>
         </div>
+        <div style={{ flexDirection: "row" }}>
+          <h3 className="mt-3">Planning Expense</h3>
+          <div className="row mt-3">
+            <div className="col-sm">
+              <ExpensePlanning />
+            </div>
+          </div>
+        </div>
+
         <h3 className="mt-3">Expenses</h3>
         <div className="row ">
           <div className="col-sm">
             <ExpenseList />
-          </div>
-        </div>
-        <h3 className="mt-3">Add Expense</h3>
-        <div className="row mt-3">
-          <div className="col-sm">
-            <AddExpenseForm />
           </div>
         </div>
       </div>
