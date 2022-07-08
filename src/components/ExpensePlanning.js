@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
+
 import { v4 as uuidv4 } from "uuid";
 
-const AddExpenseForm = (props) => {
+const ExpensePlanning = (props) => {
   const { dispatch } = useContext(AppContext);
 
   const [name, setName] = useState("");
@@ -17,7 +18,7 @@ const AddExpenseForm = (props) => {
     };
 
     dispatch({
-      type: "ADD_EXPENSE",
+      type: "PLAN_EXPENSE",
       payload: expense,
     });
 
@@ -52,9 +53,17 @@ const AddExpenseForm = (props) => {
         </div>
       </div>
       <div class="row mt-3">
-        <div class="col-sm">
+        <div class="col-sm" style={{ flexDirection: "column" }}>
           <button type="submit" class="btn btn-primary">
             Save
+          </button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            style={{ marginLeft: 10 }}
+            onClick={props.onClick}
+          >
+            Remind on Calendar
           </button>
         </div>
       </div>
@@ -62,4 +71,4 @@ const AddExpenseForm = (props) => {
   );
 };
 
-export default AddExpenseForm;
+export default ExpensePlanning;

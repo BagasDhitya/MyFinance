@@ -7,13 +7,17 @@ import Login from "./screens/Login";
 import Home from "./screens/Home";
 import "./App.css";
 
+import { CookiesProvider } from "react-cookie";
+
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Register />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/home" element={<Home />} />
-    </Routes>
+    <CookiesProvider>
+      <Routes>
+        <Route path="/" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/home" element={<Home />} />
+      </Routes>
+    </CookiesProvider>
   );
 }
 
