@@ -11,11 +11,14 @@ const Login = () => {
   let location = useLocation();
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
+  // const [token, setToken] = useState();
 
   async function login() {
     try {
       const auth = getAuth(app);
-      await signInWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth, email, password).then((user) => {
+        localStorage.setItem("accessToken", user.user.accessToken);
+      });
     } catch (error) {
       alert(error);
     }
@@ -29,11 +32,12 @@ const Login = () => {
       } else {
         alert("Hello, " + email);
       }
-
+      const accessToken = localStorage.getItem("accessToken").toString();
       navigate("/home", {
         state: {
           email: email,
           password: password,
+          token: accessToken,
         },
       });
     } else {

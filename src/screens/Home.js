@@ -13,11 +13,32 @@ const Home = () => {
   const location = useLocation();
 
   const email = location.state?.email;
+  const token = location.state?.token;
 
   const handleReminder = async () => {
     try {
       const response = await axios.post(
-        `https://www.googleapis.com/calendar/v3/calendars/${email}/events`
+        `https://www.googleapis.com/calendar/v3/calendars/${email}/events`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            Accept: "application/json",
+            "Content-Type": " application/json",
+          },
+          data: {
+            end: {
+              date: "2022-07-09",
+              timeZone: "Asia/Bangkok",
+              dateTime: "23:30",
+            },
+            start: {
+              date: "2022-07-08",
+              timeZone: "Asia/Bangkok",
+              dateTime: "22:00",
+            },
+          },
+        }
       );
       console.log(response.data);
     } catch (error) {
