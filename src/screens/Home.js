@@ -7,9 +7,23 @@ import ExpenseTotal from "../components/ExpenseTotal";
 import ExpenseList from "../components/ExpenseList";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ExpensePlanning from "../components/ExpensePlanning";
+import axios from "axios";
 
 const Home = () => {
   const location = useLocation();
+
+  const email = location.state?.email;
+
+  const handleReminder = async () => {
+    try {
+      const response = await axios.post(
+        `https://www.googleapis.com/calendar/v3/calendars/${email}/events`
+      );
+      console.log(response.data);
+    } catch (error) {
+      alert(error);
+    }
+  };
 
   return (
     <AppProvider>
@@ -30,7 +44,7 @@ const Home = () => {
           <h3 className="mt-3">Planning Expense</h3>
           <div className="row mt-3">
             <div className="col-sm">
-              <ExpensePlanning />
+              <ExpensePlanning onClick={() => handleReminder()} />
             </div>
           </div>
         </div>
